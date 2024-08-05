@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
@@ -13,12 +15,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserModel {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -47,5 +50,17 @@ public class UserModel {
     private LocalDateTime effTs;
 
     private LocalDateTime endTs;
+
+    @PrePersist
+    public void prePersist() {
+        this.effTs = LocalDateTime.now();
+        this.endTs = LocalDateTime.parse("9999-12-31T23:59:59", DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        // Update effTs to current time when the record is updated, if needed.
+        this.effTs = LocalDateTime.now();
+    }
 }
 

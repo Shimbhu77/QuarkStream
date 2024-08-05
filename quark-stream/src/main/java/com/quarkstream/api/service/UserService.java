@@ -1,11 +1,11 @@
 package com.quarkstream.api.service;
 
 import com.quarkstream.api.exceptions.UserException;
-import com.quarkstream.api.model.UserModel;
+import com.quarkstream.api.model.User;
 import com.quarkstream.api.model.dto.UserDTO;
 
 public interface UserService {
-    UserModel signupUser(UserDTO userDTO) throws UserException;
+    User signupUser(UserDTO userDTO) throws UserException;
     String loginUser(UserDTO userDTO) throws UserException;
-    UserModel loggedInUser() throws UserException;
+    User loggedInUser() throws UserException;
 }

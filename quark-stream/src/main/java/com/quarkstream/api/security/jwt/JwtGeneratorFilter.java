@@ -69,7 +69,7 @@ public class JwtGeneratorFilter extends OncePerRequestFilter {
 	@Override
 	protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
 	
-        return !request.getServletPath().equals("/app/sign-in");	
+        return !request.getServletPath().equals("/rest/user/public/sign-in");
 	}
 
 }

@@ -6,6 +6,6 @@ import com.quarkstream.api.model.dto.UserDTO;
 
 public interface UserService {
     User signupUser(UserDTO userDTO) throws UserException;
-    String loginUser(UserDTO userDTO) throws UserException;
     User loggedInUser() throws UserException;
+    User findUserByEmail(String email) throws UserException;
 }

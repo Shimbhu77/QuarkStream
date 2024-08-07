@@ -22,7 +22,7 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("rest/user")
-@Tag(name = "User API docs",description = "Different types of CRUD operations for User.")
+@Tag(name = "User API docs",description = "User Management APIs")
 public class UserController {
 
     @Autowired

@@ -33,6 +33,10 @@ public class Video {
 
     private String videoOriginalName;
 
+    private String videoTitle;
+
+    private String videoDescription;
+
     private String videoType;
 
     private String videoUrl;

@@ -53,8 +53,8 @@ public class SecurityConfig {
 				(auth)-> auth
 				.requestMatchers(HttpMethod.POST,"/rest/user/sign-up").permitAll()
 				.requestMatchers("/v3/api-docs/**", "/swagger-ui*/**").permitAll()
-//				.requestMatchers(new RegexRequestMatcher("(?i).*\\/public\\/.*", null, true)).permitAll()
-//				.requestMatchers(new RegexRequestMatcher("(?i).*\\/secure\\/.*", null, true)).authenticated()
+				.requestMatchers(new RegexRequestMatcher("(?i).*\\/public\\/.*", null, true)).permitAll()
+				.requestMatchers(new RegexRequestMatcher("(?i).*\\/secure\\/.*", null, true)).authenticated()
 				.requestMatchers("/**").hasAnyRole("USER","ADMIN","SUPER_ADMIN")
 				.anyRequest().authenticated()
 				)
